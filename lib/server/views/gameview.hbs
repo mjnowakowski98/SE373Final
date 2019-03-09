@@ -21,11 +21,7 @@
 	<div class="container my-2">
 		<div class="row">
 			<div class="col">
-				<table style="width:800px; height:600px; margin:0 auto;">
-					<tbody id="gameTable" class="table table-dark table-bordered">
-						<!-- Script Generated-->
-					</tbody>
-				</table>
+				{{>board}}
 			</div>
 		</div>
 	</div>
@@ -34,7 +30,7 @@
 		<div class="row">
 			<div class="col">
 				<p class="my-1">Rush Hour Game owned by: ThinkFun</p>
-				<p class="my-1">Shitty web browser version made by Matthew Nowakowski</p>
+				<p class="my-1">Shitty web browser version made by: Matthew Nowakowski</p>
 			</div>
 		</div>
 	</footer>
@@ -42,37 +38,5 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-	<script>
-		addEventListener("load", () => {
-			fetch("http://localhost/?action=loadPuzzle&fileName=derp")
-			.then((res) => {
-				let jsonPromise = null;
-				let textPromise = null;
-				if(res.status == 200) jsonPromise = res.json();
-				else {
-					console.error(`Error: Recieved non-OK Status->${res.status}: ${res.statusText}`);
-					textPromise = res.text();
-				}
-
-				if(jsonPromise) {
-					jsonPromise.then((loadResponse) => {
-						let gameTable = document.querySelector("#gameTable");
-						for(let rowNdx = 0; rowNdx < loadResponse.numGridRows; rowNdx++) {
-							let newRow = document.createElement("tr");
-							for(let colNdx = 0; colNdx < loadResponse.numGridCols; colNdx++) {
-								let newCol = document.createElement("td");
-								if(colNdx == loadResponse.numGridCols - 1 && rowNdx == loadResponse.exitRow)
-									newCol.classList.add("bg-success");
-								newRow.appendChild(newCol);
-							}
-
-							gameTable.appendChild(newRow);
-						}
-					});
-				} else if (textPromise) { textPromise.then((text) => console.error(text)); }
-			});
-		});
-	</script>
 </body>
 </html>
