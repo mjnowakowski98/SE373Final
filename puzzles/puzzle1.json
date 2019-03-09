@@ -1,0 +1,55 @@
+{
+	"name":"Puzzle1",
+	"board": {
+		"numGridRows":6,
+		"numGridCols":6,
+		"exitRow":2,
+		"vehicles": {
+			"redCar": { "colNdx":1 },
+			"traffic": [
+				{
+					"type":"truck",
+					"position":[0, 0],
+					"orientation":"vertical",
+					"color":"purple"
+				},
+				{
+					"type":"car",
+					"position":[3, 0],
+					"orientation":"vertical",
+					"color":"orange"
+				},
+				{
+					"type":"car",
+					"position":[0, 1],
+					"orientation":"horizontal",
+					"color":"green"
+				},
+				{
+					"type":"car",
+					"position":[4, 1],
+					"orientation":"horizontal",
+					"color":"teal"
+				},
+				{
+					"type":"truck",
+					"position":[1, 3],
+					"orientation":"vertical",
+					"color":"blue"
+				},
+				{
+					"type":"truck",
+					"position":[5,2],
+					"orientation":"horizontal",
+					"color":"cyan"
+				},
+				{
+					"type":"truck",
+					"position":[3, 5],
+					"orientation":"vertical",
+					"color":"yellow"
+				}
+			]
+		}
+	}
+}
