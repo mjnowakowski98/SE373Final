@@ -14,21 +14,23 @@
     <div class="container my-2">
         <div class="row">
             <div class="col">
-                <h2>Available puzzles</h2>
+                <h2>Welcome to Rush Hour</h2>
             </div>
         </div>
         <hr>
 
         <div class="row">
             <div class="col">
-                <form action="/game" method="get">
-                    <select name="fileName" class="form-control mb-2">
-                        {{#each availablePuzzles}}
-                            <option value="{{this}}">{{this}}</option>
-                        {{/each}}
-                    </select>
-                    <input type="submit" class="form-control btn btn-success" value="Play">
-                </form>
+                <h3>How to play:</h3>
+                <ol>
+                    <li>Do the thing</li>
+                    <li>Don't mess up</li>
+                    <li>Realize you can't mess up</li>
+                    <li>I don't know</li>
+                    <li>Win</li>
+                </ol>
+                
+                <a href="/loadPuzzle" class="btn btn-primary">Play</a>
             </div>
         </div>
     </div>

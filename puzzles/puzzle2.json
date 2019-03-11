@@ -1,5 +1,5 @@
 {
-	"name":"Puzzle1",
+	"name":"Puzzle2",
 	"board": {
 		"numGridRows":6,
 		"numGridCols":6,
@@ -11,43 +11,43 @@
 					"type":"truck",
 					"position":[0, 0],
 					"orientation":"vertical",
-					"color":"purple"
+					"color":"blanchedalmond"
 				},
 				{
 					"type":"car",
 					"position":[4, 0],
 					"orientation":"vertical",
-					"color":"orange"
+					"color":"chartreuse"
 				},
 				{
 					"type":"car",
 					"position":[0, 1],
 					"orientation":"horizontal",
-					"color":"green"
+					"color":"honeydew"
 				},
 				{
 					"type":"car",
 					"position":[4, 1],
 					"orientation":"horizontal",
-					"color":"teal"
+					"color":"olive"
 				},
 				{
 					"type":"truck",
 					"position":[1, 3],
 					"orientation":"vertical",
-					"color":"blue"
+					"color":"darkorchid"
 				},
 				{
 					"type":"truck",
 					"position":[5,2],
 					"orientation":"horizontal",
-					"color":"cyan"
+					"color":"chocolate"
 				},
 				{
 					"type":"truck",
 					"position":[3, 5],
 					"orientation":"vertical",
-					"color":"yellow"
+					"color":"tomato"
 				}
 			]
 		}

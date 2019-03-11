@@ -14,6 +14,7 @@
 
 .overlay {
 	display:flex;
+	flex-direction:column;
 	align-items:center;
 	justify-content:center;
 	color:white;
@@ -29,5 +30,5 @@
 
 table {
 	width:80%;
-	margin:0;
+	margin:0 auto;
 }
