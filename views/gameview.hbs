@@ -7,6 +7,7 @@
 	<title>Document</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="/game.css" type="text/css" rel="stylesheet">
 </head>
 
 <body class="bg-secondary">
@@ -21,7 +22,54 @@
 	<div class="container my-2">
 		<div class="row">
 			<div class="col">
-				{{>board}}
+				<h2>{{board.getName}}</h2>
+				<hr>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<table data-exit-row="{{board.getExitRow}}" data-exit-col1="{{board.getNumGridCols}}">
+					{{#if board.getPuzzleSolved}}
+					<div class="overlay">
+						<h3>You Win!</h3>
+					</div>
+					{{/if}}
+					
+					<tbody class="table table-dark table-bordered">
+						{{#each board.getTiles}}
+							<tr class="row{{@index}}">
+								{{#each this}}
+									<td style="padding:0;" class="col{{@index}}">
+										{{#if this.getVehicleTile}}
+											{{#with this.getVehicleTile}}
+											{{#with getVehicle}}
+											<div style="background-color:{{getColor}}" class="containsVehicle vehicletile"></div>
+											{{/with}}
+											{{/with}}
+										{{/if}}
+									</td>
+								{{/each}}
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+
+			<div class="col-4 border-left">
+				<form action="game" method="GET">
+					<input type="hidden" id="selectedTileRow" name="selectedTileRow" value="">
+					<input type="hidden" id="selectedTileCol" name="selectedTileCol" value="">
+
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"># of tiles</span>
+						</div>
+						<input type="number" id="offset" class="form-control" name="offset" value="0">
+						<div class="input-group-append">
+							<input type="submit" class="btn btn-primary" value="Move">
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -38,5 +86,13 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<script src="/game.js"></script>
+	<script>
+		addEventListener("load", () =>{
+			let table = document.querySelector("table");
+			table.style.height = table.clientWidth + 'px';
+		});
+	</script>
 </body>
 </html>
